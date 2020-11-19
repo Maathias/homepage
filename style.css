@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono');
 :root {
   --color-main: #f7b440;
 }
@@ -53,6 +53,7 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   perspective: 1px;
+  -moz-perspective: unset;
   perspective-origin: 0 0;
 }
 
@@ -75,11 +76,13 @@ body {
 .stripes.primary {
   fill: hsl(0 0% 16.5% / .5);
   transform: translateZ(-2px) scale(3);
+  -moz-transform: unset;
 }
 
 .stripes.secondary {
   fill: hsl(120 1% 25% / .2);
   transform: translateZ(-4px) scale(6);
+  -moz-transform: unset;
 }
 
 /* panes */
@@ -94,33 +97,35 @@ body {
 }
 
 .pane:first-child {
-  border-bottom: none;
+  border-top: none;
 }
 
 /* navigation */
 
 #floating {
   position: fixed;
-  width: 100vw;
   top: 0;
   left: 0;
-  margin-top: 1.8rem;
   z-index: 10;
+  width: 100%;
 }
 
 #nav {
   margin: 1rem 2rem;
+  margin-top: 3rem;
   user-select: none;
 }
 
 #butts {
   display: inline;
+  float: right;
 }
 
 #butts>.butt {
-  float: right;
+  float: left;
   padding: .5rem 1rem;
   cursor: pointer;
+  text-align: center;
 }
 
 #butts>.butt.active {
@@ -133,18 +138,20 @@ body {
 
 @media only screen and (max-width: 600px) {
   #butts {
-    display: block;
+    display: flex;
+    width: 100%;
   }
   #butts>.butt {
-    width: auto;
+    width: 100%;
   }
   .pane {
-    padding-top: 8rem;
+    padding-top: 10rem;
   }
 }
 
 #miniLogo {
-  height: 3.5rem;
+  height: 4rem;
+  box-sizing: border-box;
   float: left;
   border: 1px solid #febc46;
   border-radius: 100%;
@@ -182,7 +189,8 @@ body {
 
 .header {
   margin-top: 21vh;
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
+  font-family: "Roboto Mono";
 }
 
 .header>.big {
@@ -216,7 +224,7 @@ body {
   }
 
   .header>.big {
-    font-size: 12vw;
+    font-size: 9vw;
   }
   .header>.smol {
     font-size: 5vw;
