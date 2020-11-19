@@ -12,18 +12,6 @@ body {
   overflow: hidden;
 }
 
-@keyframes fader {
-  0% {
-    stroke-width: 0px;
-  }
-  50% {
-    stroke-width: 10px;
-  }
-  0% {
-    stroke-width: 0px;
-  }
-}
-
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: white; }
@@ -45,7 +33,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-main);
 }
-
 
 .wrapper {
   width: 100vw;
@@ -121,18 +108,18 @@ body {
   float: right;
 }
 
-#butts>.butt {
+.button {
   float: left;
   padding: .5rem 1rem;
   cursor: pointer;
   text-align: center;
 }
 
-#butts>.butt.active {
+.button.active {
   border-bottom: 2px solid var(--color-main);
 }
 
-#butts>.butt:hover {
+.button:hover {
   background: #ffffff0f;
 }
 
@@ -141,7 +128,7 @@ body {
     display: flex;
     width: 100%;
   }
-  #butts>.butt {
+  #butts>.button {
     width: 100%;
   }
   .pane {
@@ -199,6 +186,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
+  padding-right: 5px;
   border-right: 3px solid white;
 
   animation: 

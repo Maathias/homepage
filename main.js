@@ -4,8 +4,8 @@ const Panes = {
   switch(target) {
     if (target == this.active) return
     this.active = target
-    document.querySelector('.butt.active').classList.remove('active')
-    document.querySelector(`.butt[data-target=${target}]`).classList.add('active')
+    document.querySelector('.button.active').classList.remove('active')
+    document.querySelector(`.button[data-target=${target}]`).classList.add('active')
   },
   scrollTo(target){
     clearTimeout(this.scrollTimeout)
@@ -17,35 +17,27 @@ const Panes = {
 }
 
 window.onload = function () {
+  // nav buttons handler
   document.querySelector('#nav').onclick = function (e) {
     let target = e.target.getAttribute('data-target')
     if (target) {
-      // location.href = `#${target}`
-      // clearTimeout(scrollTimeout)
-      // document.querySelector(`#${target}`).scrollIntoView({
-      //   behavior: 'smooth'
-      // })
-      // Panes.switch(target)
       Panes.scrollTo(target)
     }
   }
 
-  var scrollTimeout,
-    wrapper = document.querySelector('.wrapper')
-
-  wrapper.addEventListener('scroll', function (e) {
-    let x = wrapper.scrollTop / window.innerHeight,
+  // scroll handler
+  document.querySelector('.wrapper').addEventListener('scroll', function (e) {
+    let x = this.scrollTop / window.innerHeight,
       y = Math.floor(x + .5)
 
-
-    clearTimeout(scrollTimeout)
-    scrollTimeout = setTimeout(function () {
-      Panes.scrollTo(['about', 'contact', 'more'][y])
-      // Panes.switch(['about', 'contact', 'more'][y])
+    clearTimeout(Panes.scrollTimeout)
+    Panes.scrollTimeout = setTimeout(function () {
+      Panes.scrollTo(document.querySelector('.panes').children[y].id)
     }, 200)
 
   });
 
+  // initial typewriter animation
   document.querySelectorAll('.typein').forEach(typein => {
     var target = typein.getAttribute('data-content')
     function print(index) {
