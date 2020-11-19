@@ -24,6 +24,16 @@ body {
   }
 }
 
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 27rem }
+}
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -80,10 +90,10 @@ body {
   padding: 9rem 1.5rem 2rem 1.5rem;
   margin: auto;
   box-sizing: border-box;
-  border-bottom: 1px solid #fefefe33;
+  border-top: 1px solid #fefefe33;
 }
 
-.pane:last-child {
+.pane:first-child {
   border-bottom: none;
 }
 
@@ -165,25 +175,58 @@ body {
 
 #about {
   text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
 }
 
-#about > .text {
-  /* border-left: 2px solid var(--color-main); */
-  margin: inherit 10px;
+.header {
+  margin-top: 21vh;
+  font-family: monospace;
 }
 
-#about>.big {
-  font-size: 2.5rem;
-}
-
-#about>.smol {
-  font-size: 1.5rem;
-}
-
-#about>.smolest {
-  font-size: .8rem;
-  max-width: 50vh;
+.header>.big {
+  font-size: 6vw;
   margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  border-right: 3px solid white;
+
+  animation: 
+    blink-caret .75s step-end infinite;
+}
+
+.header>.smol {
+  font-size: 3vw;
+  margin-top: 0.5rem;
+}
+
+.header>.smolest {
+  font-size: .8rem;
+  max-width: 47vw;
+  /* margin-top: 3rem; */
+  margin: auto;
+  margin-top: 1.3rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .header {
+    margin-top: 19vh;
+  }
+
+  .header>.big {
+    font-size: 12vw;
+  }
+  .header>.smol {
+    font-size: 5vw;
+    margin-top: 0.5rem;
+  }
+  .header>.smolest {
+    font-size: .8rem;
+    max-width: 75vw;
+    margin-top: 1.3rem;
+  }
 }
 
 .socials {

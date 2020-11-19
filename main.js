@@ -35,4 +35,17 @@ window.onload = function () {
 
   });
 
+  document.querySelectorAll('.typein').forEach(typein => {
+    var target = typein.getAttribute('data-content')
+    function print(index) {
+      typein.textContent += target[index]
+      if (target[index + 1]) {
+        setTimeout(function () {
+          print(index+1)
+        }, 75)
+      }
+    }
+    print(0)
+  })
+
 }
