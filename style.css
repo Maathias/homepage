@@ -162,7 +162,7 @@ body {
 }
 
 #logoText>span {
-  color: hsl(38 40% 85% / 1);
+  /* color: hsl(38 40% 85% / 1); */
 }
 
 /* about */
@@ -227,6 +227,9 @@ body {
 
 .socials {
   position: absolute;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 10vw;
   bottom: 2rem;
   left: 0;
   width: 100%;
@@ -236,9 +239,31 @@ body {
 
 .socials > a {
   color: inherit;
+  position: relative;
+  width: 100%;
+}
+
+.socials > a:before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .75;
+  display: inline-block;
+  width: 0%;
+  height: 0%;
+  background: var(--color-main);
+  /* transition-property: height; */
+  transition-duration: .1s;
+}
+
+.socials > a:hover:before{
+  height: 100%;
+  width: 100%;
 }
 
 .socials > a:hover {
-  border-bottom: 2px solid var(--color-main);
-  margin-bottom: 2px;
+  /* border-bottom: 2px solid var(--color-main) */
 }
