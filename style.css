@@ -56,18 +56,16 @@ body {
   transform-origin: 0 0;
 }
 
-.stripes>svg {
+.stripes>object {
   width: 100%;
 }
 
 .stripes.primary {
-  fill: hsl(0 0% 16.5% / .5);
   transform: translateZ(-2px) scale(3);
   -moz-transform: unset;
 }
 
 .stripes.secondary {
-  fill: hsl(120 1% 25% / .2);
   transform: translateZ(-4px) scale(6);
   -moz-transform: unset;
 }
