@@ -113,6 +113,8 @@ body {
   padding: .5rem 1rem;
   cursor: pointer;
   text-align: center;
+  color: inherit;
+  text-decoration: none;
 }
 
 .button.active {
@@ -159,10 +161,6 @@ body {
   padding: 0.2rem 0.9rem;
   display: inline-block;
   font-size: 1.4rem;
-}
-
-#logoText>span {
-  /* color: hsl(38 40% 85% / 1); */
 }
 
 /* about */
@@ -256,14 +254,10 @@ body {
   height: 0%;
   background: var(--color-main);
   /* transition-property: height; */
-  transition-duration: .1s;
+  transition: width .2s, height .1s;
 }
 
 .socials > a:hover:before{
   height: 100%;
   width: 100%;
-}
-
-.socials > a:hover {
-  /* border-bottom: 2px solid var(--color-main) */
 }

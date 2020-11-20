@@ -19,6 +19,7 @@ const Panes = {
 window.onload = function () {
   // nav buttons handler
   document.querySelector('#nav').onclick = function (e) {
+    e.preventDefault()
     let target = e.target.getAttribute('data-target')
     if (target) {
       Panes.scrollTo(target)
@@ -36,6 +37,11 @@ window.onload = function () {
     }, 200)
 
   });
+
+  // window.onhashchange = e => {
+  //   e.preventDefault()
+  //   console.log(e, location.hash)
+  // }
 
   // initial typewriter animation
   document.querySelectorAll('.typein').forEach(typein => {
