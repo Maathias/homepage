@@ -26,6 +26,18 @@ window.onload = function () {
     }
   }
 
+  // index buttons handler
+  document.querySelector('#index>.grid').onclick = function (e) {
+    if(this != e.target){
+      let target = e.target.getAttribute('data-target'),
+        targetEl = document.querySelector(`.head>.description.${target}`)
+
+      if(!targetEl) return
+      document.querySelector('.head>.description.active').classList.remove('active')
+      targetEl.classList.add('active')
+    }
+  }
+
   // scroll handler
   document.querySelector('.wrapper').addEventListener('scroll', function (e) {
     let x = this.scrollTop / window.innerHeight,
@@ -42,6 +54,14 @@ window.onload = function () {
   //   e.preventDefault()
   //   console.log(e, location.hash)
   // }
+
+  // hash check
+  if(location.hash){
+    let target = location.hash.slice(1)
+    if (!document.querySelector(`#${target}`)) return
+    Panes.switch(target)
+    document.querySelector(`#${target}`).scrollIntoView()
+  }
 
   // initial typewriter animation
   document.querySelectorAll('.typein').forEach(typein => {
