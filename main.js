@@ -7,7 +7,7 @@ const Panes = {
     document.querySelector('.button.active').classList.remove('active')
     document.querySelector(`.button[data-target=${target}]`).classList.add('active')
   },
-  scrollTo(target){
+  scrollTo(target) {
     clearTimeout(this.scrollTimeout)
     document.querySelector(`#${target}`).scrollIntoView({
       behavior: 'smooth'
@@ -28,13 +28,22 @@ window.onload = function () {
 
   // index buttons handler
   document.querySelector('#index>.grid').onclick = function (e) {
-    if(this != e.target){
+    console.log(this, e.target)
+    if (e.target.classList.contains('active')) {
+      window.open(e.target.getAttribute('data-link'))
+      return
+    }
+    if (this != e.target) {
       let target = e.target.getAttribute('data-target'),
-        targetEl = document.querySelector(`.head>.description.${target}`)
+        targetEl = document.querySelector(`.head>.description.${target}`),
+        activeGrid = document.querySelector('.grid>div.active')
 
-      if(!targetEl) return
+      if (!targetEl) return
+
       document.querySelector('.head>.description.active').classList.remove('active')
+      if (activeGrid) activeGrid.classList.remove('active')
       targetEl.classList.add('active')
+      e.target.classList.add('active')
     }
   }
 
@@ -56,7 +65,7 @@ window.onload = function () {
   // }
 
   // hash check
-  if(location.hash){
+  if (location.hash) {
     let target = location.hash.slice(1)
     if (!document.querySelector(`#${target}`)) return
     Panes.switch(target)
@@ -70,7 +79,7 @@ window.onload = function () {
       typein.textContent += target[index]
       if (target[index + 1]) {
         setTimeout(function () {
-          print(index+1)
+          print(index + 1)
         }, 75)
       }
     }
