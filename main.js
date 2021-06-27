@@ -13,7 +13,7 @@ const Panes = {
     clearTimeout(this.scrollTimeout)
 
     let targetPane = document.querySelector(`[data-id=${target}]`)
-    if(!targetPane) return
+    if (!targetPane) return
 
     targetPane.scrollIntoView({
       behavior: 'smooth'
@@ -21,36 +21,41 @@ const Panes = {
     Panes.switch(target)
 
   }
-  
+
 }
 
 window.onload = function () {
   // nav buttons handler
-  document.querySelector('#nav').onclick = function (e) {
+  document.querySelector('nav').onclick = function (e) {
     let target = e.target.getAttribute('data-target')
-    if (target) {
-      Panes.scrollTo(target)
-    }
+    if (target) Panes.scrollTo(target)
   }
 
   // index buttons handler
   document.querySelector('.pane.index>.grid').onclick = function (e) {
-    console.log(this, e.target)
+    
+    // if pane is already open, redirect to link
     if (e.target.classList.contains('active')) {
       window.open(e.target.getAttribute('data-link'))
       return
     }
+
     if (this != e.target) {
-      let target = e.target.getAttribute('data-target'),
-        targetEl = document.querySelector(`.head>.description.${target}`),
-        activeGrid = document.querySelector('.grid>div.active')
+      let targetButton = e.target,
+        targetId = targetButton.getAttribute('data-target'),  // target app id
+        targetDescription = document.querySelector(`.head>.description.${targetId}`),  // target app description
+        currentButton = document.querySelector('.grid>div.active') // currently active app button
 
-      if (!targetEl) return
+      // description doesn't exist
+      if (!targetDescription) return
 
-      document.querySelector('.head>.description.active').classList.remove('active')
-      if (activeGrid) activeGrid.classList.remove('active')
-      targetEl.classList.add('active')
-      e.target.classList.add('active')
+      // deactivate previous
+      document.querySelector('.head>.description.active').classList.remove('active')  // deactivate current description
+      if (currentButton) currentButton.classList.remove('active') // deactivate current app button
+
+      // activate new
+      targetDescription.classList.add('active')
+      targetButton.classList.add('active')
     }
   }
 
