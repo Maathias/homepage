@@ -30,8 +30,8 @@ const head = document.querySelector('.pane.index>.head'),
 
 for (let app of apps) {
     let description = document.createElement('div'),
-        title = document.createElement('div'),
-        link = document.createElement('a'),
+        title = document.createElement('a'),
+        link = document.createElement('i'),
         content = document.createElement('div'),
         element = document.createElement('div'),
         icon = document.createElement('i')
@@ -46,8 +46,9 @@ for (let app of apps) {
     content.classList.add('content')
     icon.classList.add('icon-link-ext')
 
-    link.setAttribute('href', app.link)
-    link.setAttribute('target', '_blank')
+    title.setAttribute('href', app.link)
+    title.setAttribute('title', app.name)
+    title.setAttribute('target', '_blank')
     element.setAttribute('data-target', app.name)
     element.setAttribute('data-link', app.link)
 

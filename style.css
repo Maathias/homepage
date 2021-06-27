@@ -322,13 +322,15 @@ nav {
 }
 
 .description>.title {
+  color: inherit;
+  text-decoration: none;
   font-size: 2rem;
   margin-bottom: 1rem;
   display: inline-block;
 }
 
-.description>a.link {
-  color: inherit;
+.description>.link {
+  color: transparent;
   text-decoration: none;
   margin-left: .5rem;
   position: absolute;
@@ -336,7 +338,7 @@ nav {
   top: 1em;
 }
 
-.description>a.link:hover {
+.description>.title:hover + .link {
   color: var(--color-main);
 }
 
