@@ -3,12 +3,22 @@
   --color-main: #f7b440;
 }
 
+@keyframes fadein {
+  from {
+    transform: scale(50);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 body {
   margin: 0px;
   font-family: Roboto;
   background-size: cover;
   color: #fefefe;
-  background: #2c2c2b;
+  background: hsl(60deg 1% 18%);
   overflow: hidden;
 }
 
@@ -80,6 +90,7 @@ body {
   margin: auto;
   box-sizing: border-box;
   border-top: 1px solid #fefefe33;
+  scroll-margin: -1px;
 }
 
 .pane:first-child {
@@ -151,7 +162,7 @@ body {
 
 /* about */
 
-#about {
+.pane.about {
   text-align: center;
   padding-left: 0;
   padding-right: 0;
@@ -231,7 +242,7 @@ body {
 
 /* Index */
 
-#index > .head {
+.pane.index > .head {
   font-family: 'Roboto Mono';
   margin-bottom: 2rem;
   height: 40%;

@@ -37,9 +37,9 @@
 			<object type="image/svg+xml" data="/media/stripes_secondary.svg"></object>
 		</div>
 		<div class="panes">
-			<div class="pane" id="about">
+			<div class="pane about" data-id="about">
 				<div class="header">
-					<div class="text big typein" data-content="Hi, I'm Mathew"></div>
+					<div class="text big typein" data-content="Hi, I'm Mathew">&#8203;</div>
 					<div class="text smol">I aspire to be a developer/sysadmin</div>
 					<div class="text smolest">I usually work with JavaScript or Python. My sysadmin experience is currently
 						limited to a
@@ -58,11 +58,11 @@
 				</div>
 			</div>
 
-			<div class="pane" id="projects">
+			<div class="pane projects" data-id="projects">
 				work in progress
 			</div>
 
-			<div class="pane" id="index">
+			<div class="pane index" data-id="index">
 				<div class="head">
 					<div class="description active">
 						<div class="title">Choose an app</div>
@@ -97,17 +97,11 @@
 							title: 'send.mtps.pl',
 							content: "Self hostowany serwer Firefox Send. Szyfrowany upload plików, z hasłem i datą wygaśnięcia",
 							link: 'https://send.mtps.pl/'
-						},
-						{
-							name: 'mc',
-							title: 'mc2.mtps.pl',
-							content: "Serwer Minecraft. Koronawirus, edycja nr 6.",
-							link: 'https://mc.mtps.pl/mc2/dynmap'
-						},
+						}
 					]
 
-					const head = document.querySelector('#index>.head'),
-						grid = document.querySelector('#index>.grid')
+					const head = document.querySelector('.pane.index>.head'),
+						grid = document.querySelector('.pane.index>.grid')
 
 					for(let app of apps){
 						let description = document.createElement('div'),
