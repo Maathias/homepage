@@ -31,6 +31,15 @@ window.onload = function () {
     if (target) Panes.scrollTo(target)
   }
 
+  // verbose about handler
+  document.querySelector('.about .arrow').onclick = function (e) {
+    let about = document.querySelector('.about')
+    
+    about.classList.contains('verbose') ? 
+    about.classList.remove('verbose') : 
+    about.classList.add('verbose')
+  }
+
   // index buttons handler
   document.querySelector('.pane.index>.grid').onclick = function (e) {
     
