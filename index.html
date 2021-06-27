@@ -15,7 +15,7 @@
 
 <body>
 	<div id="floating">
-		<div id="nav">
+		<nav>
 			<img src="/media/m_stripes.svg" alt="logo" id="miniLogo">
 			<span id="logoText"><span>M</span>a<span>t</span>eusz <span>P</span><span>s</span>trucha</span>
 
@@ -27,25 +27,36 @@
 				<div style="clear: both"></div>
 			</div>
 
-		</div>
+		</nav>
+
 	</div>
+
 	<div class="wrapper">
 		<div class="stripes primary">
 			<object type="image/svg+xml" data="/media/stripes_primary.svg"></object>
 		</div>
+
 		<div class="stripes secondary">
 			<object type="image/svg+xml" data="/media/stripes_secondary.svg"></object>
 		</div>
+
 		<div class="panes">
-			<div class="pane" id="about">
-				<div class="header">
-					<div class="text big typein" data-content="Hi, I'm Mathew"></div>
+			<div class="pane about" data-id="about">
+				<div class="header main">
+					<div class="text big typein" data-content="Hi, I'm Mathew">&#8203;</div>
 					<div class="text smol">I aspire to be a developer/sysadmin</div>
 					<div class="text smolest">I usually work with JavaScript or Python. My sysadmin experience is currently
 						limited to a
 						linux lab enviroment.
 						My repos are mainly smaller tools I made for myself, but I did few bigger projects, which you can see below
 					</div>
+					<div class="arrow"></div>
+				</div>
+
+				<div class="header verbose">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur impedit illo sequi amet quo pariatur ullam alias, corrupti fuga nam voluptas ducimus placeat a, assumenda eius blanditiis, repellat tempora hic!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur impedit illo sequi amet quo pariatur ullam alias, corrupti fuga nam voluptas ducimus placeat a, assumenda eius blanditiis, repellat tempora hic!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur impedit illo sequi amet quo pariatur ullam alias, corrupti fuga nam voluptas ducimus placeat a, assumenda eius blanditiis, repellat tempora hic!</p>
 				</div>
 
 				<div class="socials">
@@ -58,11 +69,11 @@
 				</div>
 			</div>
 
-			<div class="pane" id="projects">
+			<div class="pane projects" data-id="projects">
 				work in progress
 			</div>
 
-			<div class="pane" id="index">
+			<div class="pane index" data-id="index">
 				<div class="head">
 					<div class="description active">
 						<div class="title">Choose an app</div>
@@ -72,76 +83,13 @@
 				<div class="grid">
 				</div>
 
-				<script>
-					var apps = [
-						{
-							name: 'plex',
-							title: 'plex.mtps.pl',
-							content: "Plex Media Server. Serwer filmów, seriali, zdjęć i muzyki",
-							link: 'https://plex.mtps.pl/'
-						},
-						{
-							name: 'radio',
-							title: 'radio-rolnik.mtps.pl',
-							content: "Strona radia szkolnego Rolnika. Aktualna top lista utworów wybrana przez uczniów.",
-							link: 'https://radio-rolnik.mtps.pl/'
-						},
-						{
-							name: 'r',
-							title: 'r.mtps.pl',
-							content: "Serwer do skracania linków",
-							link: 'https://r.mtps.pl/'
-						},
-						{
-							name: 'send',
-							title: 'send.mtps.pl',
-							content: "Self hostowany serwer Firefox Send. Szyfrowany upload plików, z hasłem i datą wygaśnięcia",
-							link: 'https://send.mtps.pl/'
-						},
-						{
-							name: 'mc',
-							title: 'mc2.mtps.pl',
-							content: "Serwer Minecraft. Koronawirus, edycja nr 6.",
-							link: 'https://mc.mtps.pl/mc2/dynmap'
-						},
-					]
-
-					const head = document.querySelector('#index>.head'),
-						grid = document.querySelector('#index>.grid')
-
-					for(let app of apps){
-						let description = document.createElement('div'),
-							title = document.createElement('div'),
-							link = document.createElement('a'),
-							content = document.createElement('div'),
-							element = document.createElement('div'),
-							icon = document.createElement('i')
-
-							description.append(title, link, content)
-							element.append(app.name)
-							element.append(icon)
-
-							description.classList.add('description', app.name)
-							title.classList.add('title')
-							link.classList.add('link', 'icon-link-ext')
-							content.classList.add('content')
-							icon.classList.add('icon-link-ext')
-
-							link.setAttribute('href', app.link)
-							link.setAttribute('target', '_blank')
-							element.setAttribute('data-target', app.name)
-							element.setAttribute('data-link', app.link)
-
-							title.textContent = app.title
-							content.textContent = app.content
-
-							head.append(description)
-							grid.append(element)
-					}
-				</script>
+				<!-- generates application list -->
+				<script src="/apps.js"></script>
 
 			</div>
+
 		</div>
+
 	</div>
 
 </body>
