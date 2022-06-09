@@ -1,0 +1,7 @@
+aside.socials {
+	display: flex;
+	font-size: 2rem;
+	flex-direction: column;
+	/* height: min(50%, 7em); */
+	justify-content: space-between;
+}

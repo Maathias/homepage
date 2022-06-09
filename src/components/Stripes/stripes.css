@@ -1,0 +1,54 @@
+@keyframes down {
+	from {
+		transform: translateY(-50%);
+	}
+
+	50% {
+		transform: translateY(0%);
+	}
+
+	to {
+		transform: translateY(-50%);
+	}
+}
+
+@keyframes up {
+	from {
+		transform: translateY(50%);
+	}
+
+	50% {
+		transform: translateY(0%);
+	}
+
+	to {
+		transform: translateY(50%);
+	}
+}
+
+.stripes {
+	position: fixed;
+	top: 0;
+	z-index: -1;
+	background-color: hsl(var(--color-light));
+	width: 100vw;
+	height: 100vh;
+}
+
+.stripes img {
+	position: absolute;
+	--duration: 10s;
+	--func: linear;
+	opacity: 0.5;
+}
+
+.stripes .primary {
+	/* animation: down var(--duration) var(--func) infinite; */
+	opacity: 0.3;
+}
+
+.stripes .secondary {
+	/* bottom: 0; */
+	/* animation: up var(--duration) var(--func) infinite; */
+	opacity: 0;
+}

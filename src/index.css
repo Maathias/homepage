@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400&family=Roboto+Mono:wght@100;400&family=Source+Code+Pro&display=swap');
+
+:root {
+	--color-primary: 38, 92%, 61%;
+	--color-secondary: 7, 92%, 61%;
+	--color-dark: 255 2% 13%;
+	--color-light: 0, 0%, 98%;
+	--color-correct: 0.1;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: 304, 97%, 37%;
+		--color-secondary: 218, 97%, 37%;
+		--color-correct: 0;
+	}
+}

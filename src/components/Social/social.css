@@ -1,0 +1,30 @@
+.social-button {
+	color: inherit;
+	position: relative;
+	width: 100%;
+	z-index: 1;
+	text-align: center;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+.social-button:before {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.25;
+	display: inline-block;
+	width: 0%;
+	height: 0%;
+	background: hsl(var(--color-primary));
+	/* transition-property: height; */
+	transition: width 0.2s, height 0.1s;
+}
+
+.social-button:hover:before {
+	height: 100%;
+	width: 100%;
+}
