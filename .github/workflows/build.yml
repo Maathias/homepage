@@ -17,13 +17,17 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
       - name: Install dependencies
         run: pnpm install
 
       - name: Build
         run: pnpm run build
 
-      - uses: actions/upload-artifact@master
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
         with:
           name: build
           path: build/
