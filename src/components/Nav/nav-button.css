@@ -1,0 +1,16 @@
+.nav-button {
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	text-align: center;
+	color: inherit;
+	text-decoration: none;
+	user-select: none;
+}
+
+.nav-button[data-active='true'] {
+	border-bottom: 2px solid hsl(var(--color-light));
+}
+
+.nav-button:hover {
+	background: hsl(var(--color-primary), calc(0.2 + var(--color-correct)));
+}

@@ -1,0 +1,69 @@
+.main {
+	color: hsl(var(--color-light));
+	background: linear-gradient(
+			-45deg,
+			hsl(var(--color-primary)) 0%,
+			hsl(var(--color-secondary)) 100%
+		),
+		url('img/papyrus-dark.png');
+
+	background-blend-mode: difference;
+
+	overflow-x: hidden;
+}
+
+section {
+	height: 100vh;
+	/* scroll-margin: 1em; */
+	padding: 0.5em;
+	padding-top: 5em;
+	position: relative;
+}
+
+section:not(:last-child) {
+	margin-bottom: 2em;
+}
+
+section:not(:last-child):after {
+	content: '';
+	position: absolute;
+	bottom: -1em;
+	border-bottom: 1px solid hsla(var(--color-primary), 0.5);
+	left: 1em;
+	right: 1em;
+}
+
+section:not(:first-child):before {
+	content: '';
+	position: absolute;
+	width: min(50%, 30em);
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 1px;
+	background-color: #4332;
+	top: -1em;
+}
+
+.greeting.small {
+	font-size: 1rem;
+}
+.greeting.big {
+	font-size: 3rem;
+	font-weight: 200;
+}
+.greeting.medium {
+	font-size: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	.main {
+		background: linear-gradient(
+				-45deg,
+				hsla(var(--color-primary), 0.4) 0%,
+				hsla(var(--color-secondary), 0.4) 100%
+			),
+			url('img/papyrus-dark.png');
+		background-blend-mode: exclusion;
+	}
+}

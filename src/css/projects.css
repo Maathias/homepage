@@ -1,0 +1,28 @@
+#projects {
+	display: flex;
+	align-items: center;
+}
+
+#projects .carousel-nav {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 6rem;
+	text-align: center;
+	font-size: 2em;
+}
+
+#projects .carousel-nav i {
+	padding: 1em;
+}
+
+#projects .cards {
+	display: flex;
+	flex-direction: row;
+	overflow-x: auto;
+}
+
+#projects .card {
+	min-width: 16em;
+	margin: 0 1em;
+}
