@@ -39,17 +39,11 @@ jobs:
     needs:
       - build
     steps:
-      - uses: actions/checkout@v3
-
       - name: Download artifacts
         uses: actions/download-artifact@master
         with:
           name: build
-          path: build/
-
-      - name: Create tarball
-        run: |
-          tar czvf build.tgz build/
+          path: www.mtps.pl/
 
       - name: Copy via ssh
         uses: appleboy/scp-action@master
@@ -58,8 +52,8 @@ jobs:
           port: 2280
           username: ${{ secrets.DEPLOY_USERNAME }}
           key: ${{ secrets.DEPLOY_KEY }}
-          source: 'build.tgz'
-          target: '~/builds'
+          source: 'www.mtps.pl/'
+          target: '~/builds/'
 
       - name: Run ansible
         uses: appleboy/ssh-action@master
@@ -68,7 +62,4 @@ jobs:
           port: 2280
           username: ${{ secrets.DEPLOY_USERNAME }}
           key: ${{ secrets.DEPLOY_KEY }}
-          script: |
-            whoami
-            pwd
-            ls -la
+          script: publish-build.sh www.mtps.pl
