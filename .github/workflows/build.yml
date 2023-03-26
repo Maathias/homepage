@@ -33,3 +33,40 @@ jobs:
         with:
           name: build
           path: build/
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build/
+
+      - name: Create tarball
+        run: |
+          tar czvf build.tgz build/
+
+      - name: Copy via ssh
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: 2280
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          source: 'build.tgz'
+          target: '~/builds'
+
+      - name: Run ansible
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          port: 2280
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            whoami
+            pwd
+            ls -la
