@@ -62,4 +62,4 @@ jobs:
           port: 2280
           username: ${{ secrets.DEPLOY_USERNAME }}
           key: ${{ secrets.DEPLOY_KEY }}
-          script: publish-build.sh www.mtps.pl
+          script: ~/publish-build.sh www.mtps.pl
