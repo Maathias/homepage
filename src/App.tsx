@@ -141,7 +141,7 @@ function App() {
 						label="auth"
 						badges={['javascript-plain', 'nodejs-plain']}
 						link="https://github.com/maathias/auth"
-						image="https://user-images.githubusercontent.com/24920514/172725558-dcb40535-f13e-4f8e-852f-2c573b606ff1.png"
+						image="https://github.com/Maathias/auth/raw/master/docs/example.png"
 					>
 						Cross subdomain log in page. Made to easily integrate socials
 						accounts into one username&password, for all custom services on a
