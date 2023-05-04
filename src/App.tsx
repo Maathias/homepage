@@ -50,10 +50,13 @@ function App() {
 						Typescript.
 					</p>
 					<p>
-						Alongside development, I host my projects and apps on two servers
-						running Ubuntu Server. All my domains are being balanced by NGINX. I
-						maintain all the local services we use on our home network. Most of
-						them are running on a PfSense box.
+						Alongside development, I host my projects and apps on a small
+						network, that I run with my friend. It consists of 3x locations,
+						with main machines running Proxmox VE. They are all connected with
+						IPSEC, running on OPNsense boxes. Load balancing is done by NGINX,
+						and certificates are generated automatically from Letsencrypt. My
+						software projects are automated with Github Actions and Ansible, to
+						automatically deploy new builds to target machines (VMs).
 					</p>
 					<p>
 						I write a significant portions of my own tooling, and experiment
@@ -64,18 +67,20 @@ function App() {
 				</div>
 				<div className="stack">
 					{[
-						'mongodb-plain bigger',
-						'express-original bigger',
-						'react-original bigger',
 						'nodejs-plain bigger',
+						'typescript-plain bigger',
+						'react-original bigger',
+						'mongodb-plain bigger',
 						'nginx-original bigger',
 						'linux-plain bigger',
-						'typescript-plain bigger',
+						'ansible-plain bigger',
 						//
 						' spacer',
-						//
-						'python-plain big',
+						//,
 						'docker-plain big',
+						'express-original',
+						'terraform-plain',
+						'python-plain big',
 						'git-plain big',
 						'socketio-original',
 						'javascript-plain',
@@ -104,12 +109,6 @@ function App() {
 						></i>
 					))}
 
-					{/* <li>React</li>
-							<li>JQuery</li>
-							<li>Express.js</li>
-							<li>Redis</li>
-							<li>MongoDB</li>
-							<li>MySQL</li> */}
 				</div>
 			</section>
 
