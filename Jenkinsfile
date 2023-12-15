@@ -14,7 +14,7 @@ pipeline {
         stage('Transfer Files') {
             steps {
                 sshagent(['jenkins_master']) {
-                    sh "rsync -avz build/ kara.asgard.ygg:/tmp/${domain}"
+                    sh "sftp -r build/ kara.asgard.ygg:/tmp/${domain}"
                 }
             }
         }
