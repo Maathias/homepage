@@ -14,12 +14,14 @@ pipeline {
         stage('Transfer Files') {
             steps {
                 sshagent(['jenkins_master']) {
-                    sh '''
-                        sftp kara.asgard.ygg:/tmp/${domain} <<EOF
-                        cd /tmp
-                        put -r build/
+                    sh """
+                        sftp kara.asgard.ygg <<EOF
+                            mkdir /tmp/${domain}
+                            cd /tmp/${domain}
+                            lcd build
+                            put -r *
                         EOF
-                    '''
+                    """
                 }
             }
         }
