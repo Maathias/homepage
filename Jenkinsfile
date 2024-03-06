@@ -11,33 +11,11 @@ pipeline {
             }
         }
         
-        stage('Transfer Files') {
-            steps {
-                sshagent(['jenkins_master']) {
-                    sh """
-                        sftp kara.asgard.ygg <<EOF
-                            mkdir /tmp/${domain}
-                            cd /tmp/${domain}
-                            lcd build
-                            put -r *
-                        EOF
-                    """
-                }
-            }
-        }
-        
         stage('Deploy') {
             steps {
-                sshagent(['jenkins_master']) {
-                    sh "ssh kara.asgard.ygg deploy/static -e domain=${domain}"
-                }
+                archiveArtifacts artifacts: 'build/*', fingerprint: true
+                build job: 'ansible/deploy/static', parameters: [[$class: 'StringParameterValue', name: 'domain', value: 'doopsko']]
             }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: 'build/*', fingerprint: true
         }
     }
 }
